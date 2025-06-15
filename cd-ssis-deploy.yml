@@ -1,0 +1,26 @@
+trigger: none
+
+stages:
+- stage: DeploySSIS
+  displayName: 'Deploy SSIS to Azure ADF'
+  jobs:
+  - job: SSISDeploy
+    displayName: 'Deploy to ADF SSIS IR'
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - download: current
+      artifact: ssis-packages
+
+    - task: SSISDeploymentWizard@2
+      inputs:
+        sqlServerName: 'your-sql-server.database.windows.net'
+        sqlDatabaseName: 'SSISDB'
+        authenticationType: 'aadServicePrincipal'
+        azureSubscription: 'your-azure-subscription-name'
+        tenantId: 'your-tenant-id'
+        servicePrincipalId: 'your-client-id'
+        servicePrincipalKey: '$(servicePrincipalKey)'
+        packagePath: '$(Pipeline.Workspace)/ssis-packages/SampleLoadWithEmail.dtsx'
+        folderPath: '/ADFProjects'
+        projectName: 'SSISProject'

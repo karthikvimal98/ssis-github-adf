@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts" DTS:ExecutableType="SSIS.Package.1">
+  <DTS:Property DTS:Name="CreationName">Microsoft.SqlServer.Dts.Package.1</DTS:Property>
+  <DTS:Property DTS:Name="PackageFormatVersion">3</DTS:Property>
+  <DTS:Property DTS:Name="VersionComments"></DTS:Property>
+  <DTS:Property DTS:Name="CreatorName">DummyUser</DTS:Property>
+  <DTS:Property DTS:Name="CreatorComputerName">DummyPC</DTS:Property>
+  <DTS:Property DTS:Name="Name">SampleLoadWithEmail</DTS:Property>
+  <DTS:Property DTS:Name="Description">Dummy SSIS Package for GitHub to ADF CI/CD Test</DTS:Property>
+</DTS:Executable>
